@@ -1,77 +1,121 @@
 # Changelog
 
-Все значимые изменения в проекте StormMatrix-Kanban будут документироваться в этом файле.
+All notable changes to the StormMatrix Kanban project will be documented in this file.
 
-Формат основан на [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-и проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Добавлено
-- Поддержка индивидуальных аватаров для пользователей
-- Новые интеграции с внешними календарями
+### Added
+- Support for individual user avatars
+- New integrations with external calendars
 
-### Исправлено
-- Проблемы с уведомлениями в Firefox
+### Fixed
+- Notification issues in Firefox
+
+## [0.9.0] - 2025-05-03
+
+### Added
+- Annual dashboard for comprehensive diagnostics with long-term metrics aggregation
+- Annual business intelligence dashboard with user metrics and conversion tracking
+- Annual infrastructure monitoring dashboard for resource utilization and scaling analysis
+- SSO integration with support for SAML, OAuth, and OIDC
+- Multiple methods for two-factor authentication (TOTP, SMS, email)
+- Full-text search capability across boards, cards, and comments
+- Saved filters functionality for frequent search patterns
+- GraphQL API support alongside REST API
+- Card attachment preview for various file formats
+- Enhanced role management system with granular permissions
+- Bulk operations for cards (move, assign, label)
+
+### Changed
+- Improved dashboard UI with responsive layouts for all device sizes
+- Optimized database queries for faster performance
+- Enhanced WebSocket handling for more reliable real-time updates
+- Updated to Node.js 18 across all services
+- Migrated to TypeScript 5.0 for improved type safety
+- Updated frontend dependencies to latest versions
+- Improved Docker container efficiency with multi-stage builds
+
+### Fixed
+- Board synchronization issues during high concurrency
+- Card drag-and-drop position calculation on zoomed displays
+- Authentication token renewal mechanism
+- File attachment storage path handling
+- WebSocket reconnection during network fluctuations
+- Date formatting issues in the notification system
+- Performance degradation with large number of cards
+- Memory leaks in long-running processes
+
+### Security
+- Enhanced password policy enforcement
+- Implemented CSRF protection across all API endpoints
+- Added protection against XSS attacks
+- Improved authentication token handling
+- Introduced rate limiting for authentication attempts
+- Enhanced audit logging for security events
+- Implemented content security policy headers
 
 ## [0.8.0] - 2025-03-15
 
-### Добавлено
-- API интеграций с внешними системами
-- Шаблоны карточек для повторяющихся задач
-- Экспорт данных доски в различные форматы (CSV, JSON, Excel)
-- Динамические панели мониторинга в Grafana
-- Поддержка прикрепления видео к карточкам
+### Added
+- API integrations with external systems
+- Card templates for recurring tasks
+- Board data export in various formats (CSV, JSON, Excel)
+- Dynamic monitoring dashboards in Grafana
+- Support for attaching videos to cards
 
-### Улучшено
-- Производительность запросов к базе данных
-- Обновлены зависимости всех микросервисов
-- Улучшена документация API
+### Improved
+- Database query performance
+- Updated dependencies for all microservices
+- Improved API documentation
 
-### Исправлено
-- Проблема с кешированием в Redis
-- Ошибка при создании дублирующихся меток
+### Fixed
+- Caching issue in Redis
+- Error when creating duplicate labels
 
 ## [0.7.0] - 2025-01-20
 
-### Добавлено
-- Интеграция с Telegram для получения уведомлений
-- Настраиваемая панель управления для пользователя
-- Система тегов для карточек и досок
-- Расширенные возможности поиска и фильтрации
-- Метрики производительности и мониторинг Prometheus
+### Added
+- Integration with Telegram for notifications
+- Customizable user dashboard
+- Tagging system for cards and boards
+- Advanced search and filtering capabilities
+- Performance metrics and Prometheus monitoring
 
-### Улучшено
-- Обновлен UI интерфейс с улучшенной доступностью
-- Оптимизация работы с большими досками
-- Улучшена система уведомлений
+### Improved
+- Updated UI with enhanced accessibility
+- Optimized handling of large boards
+- Improved notification system
 
-### Исправлено
-- Проблемы с двухфакторной аутентификацией
-- Ошибки синхронизации при одновременном редактировании карточек
+### Fixed
+- Two-factor authentication issues
+- Synchronization errors during concurrent card edits
 
 ## [0.6.0] - 2024-11-10
 
-### Добавлено
-- Первая публичная бета-версия
-- Основной функционал Kanban-досок
-- Поддержка пользователей и команд
-- Базовые настройки и персонализация
-- Система уведомлений для назначенных задач
-- Микросервисная архитектура с 5 основными сервисами
-- Поддержка мультиязычности (английский, русский, немецкий)
-- Двухфакторная аутентификация
-- Базовый административный интерфейс
-- Вложения файлов к карточкам
-- Комментарии к карточкам с упоминаниями пользователей
-- Разделение карточек по приоритетам
-- API с документацией Swagger
-- Базовая система мониторинга и логирования
+### Added
+- First public beta release
+- Core Kanban board functionality
+- User and team support
+- Basic settings and personalization
+- Notification system for assigned tasks
+- Microservice architecture with 5 core services
+- Multilingual support (English, Russian, German)
+- Two-factor authentication
+- Basic admin interface
+- File attachments to cards
+- Comments on cards with user mentions
+- Card prioritization
+- API with Swagger documentation
+- Basic monitoring and logging system
 
-### Исправлено
-- Различные баги бета-тестирования
+### Fixed
+- Various beta testing bugs
 
-[Unreleased]: https://github.com/T-7219/StormMatrix-Kanban/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/T-7219/StormMatrix-Kanban/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/T-7219/StormMatrix-Kanban/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/T-7219/StormMatrix-Kanban/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/T-7219/StormMatrix-Kanban/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/T-7219/StormMatrix-Kanban/releases/tag/v0.6.0

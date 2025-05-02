@@ -10,7 +10,7 @@
   <a href="https://github.com/T-7219/StormMatrix-Kanban/stargazers"><img src="https://img.shields.io/github/stars/T-7219/StormMatrix-Kanban?style=flat-square" alt="Sterne"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/issues"><img src="https://img.shields.io/github/issues/T-7219/StormMatrix-Kanban?style=flat-square" alt="Probleme"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/T-7219/StormMatrix-Kanban/ci.yml?branch=main&label=tests&style=flat-square" alt="Tests"></a>
-  <p><strong>Aktuelle Version: 0.8.0</strong></p>
+  <p><strong>Aktuelle Version: 0.9.0</strong></p>
 
   [English](README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md)
 </div>
@@ -19,16 +19,20 @@
 
 - **📋 Intuitive Kanban-Board-Oberfläche**: Drag-and-Drop-Karten, anpassbare Spalten und Echtzeit-Updates
 - **🌐 Mehrsprachige Unterstützung**: Verfügbar in Englisch, Deutsch und Russisch
-- **🔒 Benutzerauthentifizierung**: Sichere Anmeldung mit optionaler Zwei-Faktor-Authentifizierung
-- **👥 Teamzusammenarbeit**: Boards teilen, Aufgaben zuweisen und Karten kommentieren
-- **🔄 Anpassbare Arbeitsabläufe**: Definieren Sie Ihre eigenen Spalten und Workflow-Schritte
-- **📎 Dateianhänge**: Hochladen und Anhängen von Dateien an Karten
-- **📊 Aktivitätsverfolgung**: Verfolgen Sie alle Änderungen und Updates
-- **🔔 Benachrichtigungen**: Erhalten Sie Benachrichtigungen über Zuweisungen und nahende Fristen
-- **🔍 Filtern und Suchen**: Finden Sie Aufgaben schnell mit leistungsstarken Filteroptionen
-- **👤 Persönliche und Team-Boards**: Trennen Sie persönliche Aufgaben von Teamprojekten
-- **📱 Responsives Design**: Funktioniert auf Desktop, Tablet und Mobilgeräten
-- **🌙 Dunkelmodus**: Reduzieren Sie die Augenbelastung mit dem Dunkelmodus
+- **🔒 Benutzerauthentifizierung**: Sichere Anmeldung mit erweiterter Zwei-Faktor-Authentifizierung und SSO-Integration
+- **👥 Teamzusammenarbeit**: Boards teilen, Aufgaben zuweisen und Karten kommentieren mit verbesserten Rechten und Rollen
+- **🔄 Anpassbare Arbeitsabläufe**: Definieren Sie Ihre eigenen Spalten, Workflow-Schritte und automatisierte Regeln
+- **📎 Dateianhänge**: Hochladen und Anhängen von Dateien an Karten mit erweiterter Vorschauunterstützung
+- **📊 Aktivitätsverfolgung**: Umfassende Protokollierung und Dashboards für Aktivitäten und Fortschritte
+- **🔔 Benachrichtigungen**: Erweiterte Benachrichtigungen über Zuweisungen, nahende Fristen und benutzerdefinierte Ereignisse
+- **🔍 Filtern und Suchen**: Erweiterte Suchfunktionen mit gespeicherten Filtern und Volltextsuche
+- **👤 Persönliche und Team-Boards**: Trennen Sie persönliche Aufgaben von Teamprojekten mit verbesserter Organisationsstruktur
+- **📱 Responsives Design**: Optimierte Benutzeroberfläche für Desktop, Tablet und Mobilgeräte
+- **🌙 Dunkelmodus**: Reduzieren Sie die Augenbelastung mit dem Dunkelmodus und benutzerdefinierten Farbthemen
+- **📈 Erweiterte Analytik**: Neue Jahresübersichts-Dashboards für umfassende Diagnose und Auswertung
+- **⚡ Leistungsoptimierungen**: Verbesserte Ladezeiten und reaktionsschnellere Benutzeroberfläche
+- **🔄 API-Erweiterungen**: Umfassendere REST-API mit GraphQL-Unterstützung
+- **🔐 Verbesserte Sicherheit**: Erweiterte Sicherheitsmaßnahmen und Datenschutzeinstellungen
 
 ## 🏗️ Architektur
 
@@ -80,6 +84,7 @@ docker-compose up -d
 - Frontend: http://localhost:3000
 - API: http://localhost:80/api
 - API-Dokumentation: http://localhost:80/api/docs
+- Grafana Dashboards: http://localhost:3000/grafana
 
 ### Ersteinrichtung
 
@@ -89,6 +94,13 @@ Beim ersten Start der Anwendung wird automatisch ein Administrator-Benutzer mit 
 - Passwort: admin
 
 Ändern Sie diese Anmeldedaten unbedingt sofort nach Ihrer ersten Anmeldung.
+
+### Zugriff auf Monitoring-Dashboards
+
+Die neuen erweiterten Jahres-Dashboards finden Sie unter:
+- Comprehensive Diagnostics: http://localhost:3000/grafana/d/stormmatrix-annual-diag
+- Business Intelligence: http://localhost:3000/grafana/d/stormmatrix-annual-bi
+- Infrastructure: http://localhost:3000/grafana/d/stormmatrix-annual-infra
 
 ## 💻 Entwicklung
 
@@ -143,6 +155,21 @@ Wir freuen uns über Beiträge zu StormMatrix Kanban! Bitte sehen Sie sich unser
 ## 📦 Bereitstellung
 
 Für die Produktionsbereitstellung empfehlen wir die Verwendung von Kubernetes. Konfigurationsdateien für die Kubernetes-Bereitstellung sind im Verzeichnis `k8s` verfügbar.
+
+## 📋 Änderungsprotokoll
+
+Die neuesten Änderungen in Version 0.9.0:
+
+- **📈 Neue Jahres-Dashboards**: Umfassende Diagnose, Business Intelligence und Infrastruktur-Monitoring
+- **🔒 Erweiterte Zwei-Faktor-Authentifizierung**: Unterstützung für mehrere Authentifizierungsmethoden
+- **🔄 SSO-Integration**: Unterstützung für SAML, OAuth und OIDC
+- **👥 Verbesserte Benutzerrechte**: Detaillierte Rollenverwaltung und Berechtigungssystem
+- **⚡ Leistungsoptimierungen**: Schnellere Ladezeiten und verbesserte Benutzererfahrung
+- **📱 UI-Verbesserungen**: Reaktionsschnellere Benutzeroberfläche und optimiertes mobiles Erlebnis
+- **🔍 Erweiterte Suchfunktionen**: Volltextsuche und gespeicherte Filter
+- **🔌 Neue API-Endpunkte**: Erweiterte API-Funktionalität und GraphQL-Unterstützung
+
+Vollständiges Änderungsprotokoll finden Sie in der [CHANGELOG.md](CHANGELOG.md) Datei.
 
 ## 📄 Lizenz
 

@@ -3,14 +3,14 @@
 <div align="center">
   <img src="img/logo/dementor-kanban-logo.png" alt="Dementor Kanban Logo" width="200">
   <h3>Professional Kanban Board System</h3>
-  <p>A modern, full-featured Kanban board application designed with microservices architecture to provide scalability, resilience, and flexibility.</p>
+  <p>A modern, full-featured Kanban board application built with microservices architecture for scalability, resilience, and flexibility.</p>
 
   <a href="https://github.com/T-7219/StormMatrix-Kanban/releases/latest"><img src="https://img.shields.io/github/v/release/T-7219/StormMatrix-Kanban?include_prereleases&style=flat-square" alt="Latest Release"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/blob/main/LICENSE"><img src="https://img.shields.io/github/license/T-7219/StormMatrix-Kanban?style=flat-square" alt="License"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/stargazers"><img src="https://img.shields.io/github/stars/T-7219/StormMatrix-Kanban?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/issues"><img src="https://img.shields.io/github/issues/T-7219/StormMatrix-Kanban?style=flat-square" alt="Issues"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/T-7219/StormMatrix-Kanban/ci.yml?branch=main&label=tests&style=flat-square" alt="Tests"></a>
-  <p><strong>Current Version: 0.8.0</strong></p>
+  <p><strong>Current Version: 0.9.0</strong></p>
 
   [English](README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md)
 </div>
@@ -19,16 +19,20 @@
 
 - **📋 Intuitive Kanban Board Interface**: Drag-and-drop cards, customizable columns, and real-time updates
 - **🌐 Multi-language Support**: Available in English, German, and Russian
-- **🔒 User Authentication**: Secure login with optional two-factor authentication
-- **👥 Team Collaboration**: Share boards, assign tasks, and comment on cards
-- **🔄 Customizable Workflows**: Define your own columns and workflow steps
-- **📎 File Attachments**: Upload and attach files to cards
-- **📊 Activity Tracking**: Keep track of all changes and updates
-- **🔔 Notifications**: Get notified about assignments and approaching deadlines
-- **🔍 Filtering and Searching**: Find tasks quickly with powerful filtering options
-- **👤 Personal and Team Boards**: Separate personal tasks from team projects
-- **📱 Responsive Design**: Works on desktop, tablet, and mobile devices
-- **🌙 Dark Mode**: Reduce eye strain with dark mode support
+- **🔒 User Authentication**: Secure login with enhanced two-factor authentication and SSO integration
+- **👥 Team Collaboration**: Share boards, assign tasks, and comment on cards with improved permissions and roles
+- **🔄 Customizable Workflows**: Define your own columns, workflow stages, and automation rules
+- **📎 File Attachments**: Upload and attach files to cards with enhanced preview support
+- **📊 Activity Tracking**: Comprehensive logging and dashboards for activities and progress
+- **🔔 Notifications**: Enhanced notifications for assignments, approaching deadlines, and custom events
+- **🔍 Filter and Search**: Advanced search capabilities with saved filters and full-text search
+- **👤 Personal and Team Boards**: Separate personal tasks from team projects with improved organizational structure
+- **📱 Responsive Design**: Optimized interface for desktop, tablet, and mobile devices
+- **🌙 Dark Mode**: Reduce eye strain with dark mode and custom color themes
+- **📈 Enhanced Analytics**: New annual overview dashboards for comprehensive diagnostics and business intelligence
+- **⚡ Performance Optimizations**: Improved load times and more responsive interface
+- **🔄 API Extensions**: More comprehensive REST API with GraphQL support
+- **🔐 Enhanced Security**: Advanced security measures and privacy settings
 
 ## 🏗️ Architecture
 
@@ -80,15 +84,23 @@ docker-compose up -d
 - Frontend: http://localhost:3000
 - API: http://localhost:80/api
 - API Documentation: http://localhost:80/api/docs
+- Grafana Dashboards: http://localhost:3000/grafana
 
 ### Initial Setup
 
-The first time you run the application, an admin user will be created automatically with the credentials specified in your `.env` file. The default credentials are:
+On first startup, the application will automatically create an admin user with the credentials specified in your `.env` file. The default credentials are:
 
 - Email: admin@example.com
 - Password: admin
 
-Be sure to change these credentials immediately after your first login.
+Make sure to change these credentials immediately after your first login.
+
+### Accessing Monitoring Dashboards
+
+The new enhanced annual dashboards can be found at:
+- Comprehensive Diagnostics: http://localhost:3000/grafana/d/stormmatrix-annual-diag
+- Business Intelligence: http://localhost:3000/grafana/d/stormmatrix-annual-bi
+- Infrastructure: http://localhost:3000/grafana/d/stormmatrix-annual-infra
 
 ## 💻 Development
 
@@ -144,18 +156,33 @@ We welcome contributions to StormMatrix Kanban! Please see our [Contributing Gui
 
 For production deployment, we recommend using Kubernetes. Configuration files for Kubernetes deployment are available in the `k8s` directory.
 
+## 📋 Changelog
+
+Latest changes in version 0.9.0:
+
+- **📈 New Annual Dashboards**: Comprehensive diagnostics, business intelligence, and infrastructure monitoring
+- **🔒 Enhanced Two-Factor Authentication**: Support for multiple authentication methods
+- **🔄 SSO Integration**: Support for SAML, OAuth, and OIDC
+- **👥 Improved User Permissions**: Detailed role management and permission system
+- **⚡ Performance Optimizations**: Faster load times and improved user experience
+- **📱 UI Improvements**: More responsive interface and optimized mobile experience
+- **🔍 Enhanced Search Features**: Full-text search and saved filters
+- **🔌 New API Endpoints**: Extended API functionality and GraphQL support
+
+Full changelog is available in the [CHANGELOG.md](CHANGELOG.md) file.
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👏 Acknowledgments
 
-- Thanks to all contributors who have helped build this project
-- Special thanks to the open source community for the amazing tools that made this possible
+- Thanks to all contributors who helped build this project
+- Special thanks to the open-source community for the amazing tools that made this possible
 
 ## 📞 Contact & Support
 
-- Create an [issue](https://github.com/T-7219/StormMatrix-Kanban/issues) for bug reports or feature requests
+- Create an [Issue](https://github.com/T-7219/StormMatrix-Kanban/issues) for bug reports or feature requests
 - Contact the team at support@stormmatrix.pro
 - Join our [Telegram Group](https://t.me/+Ck61P7EPXgY5ZGVi) for discussions: @stormmatrix_pro
 
