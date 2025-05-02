@@ -1,33 +1,16 @@
-FROM node:18-alpine AS development
+FROM node:18-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 
-# Добавляем глобальную установку NestJS CLI
 RUN npm install -g @nestjs/cli && npm install
 
 COPY . .
 
-RUN npm run build
+# Создаем директорию для загрузки файлов и устанавливаем права
+RUN mkdir -p /app/uploads && chmod 777 /app/uploads
 
-FROM node:18-alpine AS production
-
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
-
-WORKDIR /app
-
-COPY package*.json ./
-
-# Изменяем на установку всех зависимостей, включая devDependencies для типов
-RUN npm install
-
-# Копируем исходники
-COPY . .
-
-# Копируем собранное приложение из development стадии
-COPY --from=development /app/dist ./dist
-
-# Меняем команду запуска на прямой вызов node
-CMD ["node", "dist/main"]
+# Используем команду по умолчанию для запуска в режиме разработки
+# В docker-compose.yml есть своя команда, которая переопределит эту
+CMD ["npm", "run", "start:dev"]
