@@ -4,7 +4,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+# Добавляем глобальную установку NestJS CLI
+RUN npm install -g @nestjs/cli && npm install
 
 COPY . .
 
@@ -23,4 +24,5 @@ RUN npm install --only=production
 
 COPY --from=development /app/dist ./dist
 
+# Меняем команду запуска на прямой вызов node
 CMD ["node", "dist/main"]

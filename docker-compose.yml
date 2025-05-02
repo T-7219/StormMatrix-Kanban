@@ -156,7 +156,8 @@ services:
       - REDIS_PORT=6379
       - JWT_SECRET=${JWT_SECRET:-devjwtsecret}
       - RABBIT_MQ_URI=amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672
-    command: npm run start:debug
+    # Устанавливаем NestJS CLI локально перед сборкой и запуском
+    command: sh -c "npm install -g @nestjs/cli && npm run build && node dist/main"
     depends_on:
       - postgres
       - redis
@@ -220,7 +221,8 @@ services:
       - REDIS_PORT=6379
       - JWT_SECRET=${JWT_SECRET:-devjwtsecret}
       - RABBIT_MQ_URI=amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672
-    command: npm run start:debug
+    # Устанавливаем NestJS CLI локально перед сборкой и запуском
+    command: sh -c "npm install -g @nestjs/cli && npm run build && node dist/main"
     depends_on:
       - postgres
       - redis
@@ -254,7 +256,8 @@ services:
       - JWT_SECRET=${JWT_SECRET:-devjwtsecret}
       - UPLOAD_DIR=/app/uploads
       - RABBIT_MQ_URI=amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672
-    command: npm run start:debug
+    # Устанавливаем NestJS CLI локально перед сборкой и запуском
+    command: sh -c "npm install -g @nestjs/cli && npm run build && node dist/main"
     depends_on:
       - postgres
       - redis
