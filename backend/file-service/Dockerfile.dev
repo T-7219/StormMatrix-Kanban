@@ -8,9 +8,8 @@ RUN npm install -g @nestjs/cli && npm install
 
 COPY . .
 
-# Создаем директорию для загрузки файлов и устанавливаем права
-RUN mkdir -p /app/uploads && chmod 777 /app/uploads
+# Проверяем наличие директории перед созданием
+RUN if [ ! -d "/app/uploads" ]; then mkdir -p /app/uploads && chmod 777 /app/uploads; fi
 
-# Используем команду по умолчанию для запуска в режиме разработки
-# В docker-compose.yml есть своя команда, которая переопределит эту
-CMD ["npm", "run", "start:dev"]
+# Используем команду для запуска в режиме разработки
+CMD ["npm", "run", "start:debug"]

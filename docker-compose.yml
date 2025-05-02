@@ -23,6 +23,20 @@ services:
     networks:
       - stormmatrix-network
 
+  # Postgres exporter для мониторинга
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:v0.13.1
+    container_name: stormmatrix-postgres-exporter
+    environment:
+      DATA_SOURCE_NAME: "postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/postgres?sslmode=disable"
+    ports:
+      - "9187:9187"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - stormmatrix-network
+
   # Cache and session store
   redis:
     image: redis:7-alpine
@@ -36,6 +50,20 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
+    networks:
+      - stormmatrix-network
+
+  # Redis exporter для мониторинга
+  redis-exporter:
+    image: oliver006/redis_exporter:v1.51.0
+    container_name: stormmatrix-redis-exporter
+    environment:
+      REDIS_ADDR: "redis://redis:6379"
+    ports:
+      - "9121:9121"
+    depends_on:
+      - redis
     restart: unless-stopped
     networks:
       - stormmatrix-network
@@ -99,6 +127,19 @@ services:
     networks:
       - stormmatrix-network
 
+  # Nginx exporter для мониторинга
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:1.1.0
+    container_name: stormmatrix-nginx-exporter
+    command: -nginx.scrape-uri=http://nginx/nginx_status
+    ports:
+      - "9113:9113"
+    depends_on:
+      - nginx
+    restart: unless-stopped
+    networks:
+      - stormmatrix-network
+
   # Microservices
   auth-service:
     build:
@@ -156,8 +197,8 @@ services:
       - REDIS_PORT=6379
       - JWT_SECRET=${JWT_SECRET:-devjwtsecret}
       - RABBIT_MQ_URI=amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672
-    # Устанавливаем NestJS CLI локально перед сборкой и запуском
-    command: sh -c "npm install -g @nestjs/cli && npm run build && node dist/main"
+    # Fix: Use the debug script directly instead of manual build
+    command: npm run start:debug
     depends_on:
       - postgres
       - redis
@@ -221,8 +262,8 @@ services:
       - REDIS_PORT=6379
       - JWT_SECRET=${JWT_SECRET:-devjwtsecret}
       - RABBIT_MQ_URI=amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672
-    # Устанавливаем NestJS CLI локально перед сборкой и запуском
-    command: sh -c "npm install -g @nestjs/cli && npm run build && node dist/main"
+    # Fix: Use the debug script directly instead of manual build
+    command: npm run start:debug
     depends_on:
       - postgres
       - redis
@@ -256,8 +297,8 @@ services:
       - JWT_SECRET=${JWT_SECRET:-devjwtsecret}
       - UPLOAD_DIR=/app/uploads
       - RABBIT_MQ_URI=amqp://${RABBITMQ_USER:-guest}:${RABBITMQ_PASSWORD:-guest}@rabbitmq:5672
-    # Устанавливаем NestJS CLI локально перед сборкой и запуском
-    command: sh -c "npm install -g @nestjs/cli && npm run build && node dist/main"
+    # Fix: Use the debug script directly instead of manual build
+    command: npm run start:debug
     depends_on:
       - postgres
       - redis

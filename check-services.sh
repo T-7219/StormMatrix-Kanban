@@ -13,6 +13,14 @@ echo -e "${BLUE}=== StormMatrix-Kanban System Health Check ===${NC}"
 echo "Date: $(date)"
 echo "--------------------------------------------"
 
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo -e "${YELLOW}Warning: jq is not installed. JSON output will not be formatted.${NC}"
+    JQ_AVAILABLE=false
+else
+    JQ_AVAILABLE=true
+fi
+
 # Function to check a single service health
 check_service() {
     local service_name=$1
@@ -35,7 +43,11 @@ check_service() {
     if [[ "$ping_response" == "200" ]]; then
         echo -e "${GREEN}Health ping: OK (200)${NC}"
         # Get and display service details
-        curl -s http://localhost:$port/api/v1/health/ping | jq .
+        if [ "$JQ_AVAILABLE" = true ]; then
+            curl -s http://localhost:$port/api/v1/health/ping | jq .
+        else
+            curl -s http://localhost:$port/api/v1/health/ping
+        fi
     else
         echo -e "${RED}Health ping: FAILED ($ping_response)${NC}"
     fi
@@ -66,7 +78,11 @@ diag_response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3001/api
 if [[ "$diag_response" == "200" ]]; then
     echo -e "${GREEN}System diagnostic: OK (200)${NC}"
     echo -e "${YELLOW}Diagnostic Details:${NC}"
-    curl -s http://localhost:3001/api/v1/health/diagnostic | jq .
+    if [ "$JQ_AVAILABLE" = true ]; then
+        curl -s http://localhost:3001/api/v1/health/diagnostic | jq .
+    else
+        curl -s http://localhost:3001/api/v1/health/diagnostic
+    fi
 else
     echo -e "${RED}System diagnostic: FAILED ($diag_response)${NC}"
 fi

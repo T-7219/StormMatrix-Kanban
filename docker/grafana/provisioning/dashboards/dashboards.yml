@@ -1,0 +1,13 @@
+apiVersion: 1
+
+providers:
+  - name: 'StormMatrix Dashboards'
+    orgId: 1
+    folder: 'StormMatrix'
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards
