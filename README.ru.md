@@ -1,7 +1,7 @@
 # StormMatrix Kanban
 
 <div align="center">
-  <img src="https://via.placeholder.com/200x200?text=StormMatrix" alt="StormMatrix Логотип" width="200" height="200">
+  <img src="img/logo/dementor-kanban-logo.png" alt="Dementor Kanban Логотип" width="200">
   <h3>Профессиональная система Kanban-досок</h3>
   <p>Современное, полнофункциональное Kanban-приложение, построенное на микросервисной архитектуре для обеспечения масштабируемости, отказоустойчивости и гибкости.</p>
 
@@ -10,6 +10,7 @@
   <a href="https://github.com/T-7219/StormMatrix-Kanban/stargazers"><img src="https://img.shields.io/github/stars/T-7219/StormMatrix-Kanban?style=flat-square" alt="Звезды"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/issues"><img src="https://img.shields.io/github/issues/T-7219/StormMatrix-Kanban?style=flat-square" alt="Проблемы"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/T-7219/StormMatrix-Kanban/ci.yml?branch=main&label=тесты&style=flat-square" alt="Тесты"></a>
+  <p><strong>Текущая версия: 0.8.0</strong></p>
 
   [English](README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md)
 </div>
@@ -155,7 +156,8 @@ npm test
 ## 📞 Контакты и поддержка
 
 - Создайте [issue](https://github.com/T-7219/StormMatrix-Kanban/issues) для отчетов об ошибках или запросов функций
-- Свяжитесь с командой по адресу support@stormmatrix.com
+- Свяжитесь с командой по адресу support@stormmatrix.pro
+- Присоединяйтесь к нашей [группе Telegram](https://t.me/+Ck61P7EPXgY5ZGVi) для обсуждений: @stormmatrix_pro
 
 ---
 

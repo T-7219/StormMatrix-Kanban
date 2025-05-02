@@ -1,7 +1,7 @@
 # StormMatrix Kanban
 
 <div align="center">
-  <img src="https://via.placeholder.com/200x200?text=StormMatrix" alt="StormMatrix Logo" width="200" height="200">
+  <img src="img/logo/dementor-kanban-logo.png" alt="Dementor Kanban Logo" width="200">
   <h3>Professional Kanban Board System</h3>
   <p>A modern, full-featured Kanban board application designed with microservices architecture to provide scalability, resilience, and flexibility.</p>
 
@@ -10,6 +10,7 @@
   <a href="https://github.com/T-7219/StormMatrix-Kanban/stargazers"><img src="https://img.shields.io/github/stars/T-7219/StormMatrix-Kanban?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/issues"><img src="https://img.shields.io/github/issues/T-7219/StormMatrix-Kanban?style=flat-square" alt="Issues"></a>
   <a href="https://github.com/T-7219/StormMatrix-Kanban/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/T-7219/StormMatrix-Kanban/ci.yml?branch=main&label=tests&style=flat-square" alt="Tests"></a>
+  <p><strong>Current Version: 0.8.0</strong></p>
 
   [English](README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md)
 </div>
@@ -155,7 +156,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact & Support
 
 - Create an [issue](https://github.com/T-7219/StormMatrix-Kanban/issues) for bug reports or feature requests
-- Contact the team at support@stormmatrix.com
+- Contact the team at support@stormmatrix.pro
+- Join our [Telegram Group](https://t.me/+Ck61P7EPXgY5ZGVi) for discussions: @stormmatrix_pro
 
 ---
 
