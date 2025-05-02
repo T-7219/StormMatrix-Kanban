@@ -20,8 +20,13 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --only=production
+# Изменяем на установку всех зависимостей, включая devDependencies для типов
+RUN npm install
 
+# Копируем исходники
+COPY . .
+
+# Копируем собранное приложение из development стадии
 COPY --from=development /app/dist ./dist
 
 # Меняем команду запуска на прямой вызов node
