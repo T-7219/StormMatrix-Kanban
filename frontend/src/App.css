@@ -1,0 +1,24 @@
+.app {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.container {
+  padding: 20px;
+  flex: 1;
+}
+
+.footer {
+  background-color: #282c34;
+  padding: 10px;
+  color: white;
+  font-size: 0.8em;
+}
