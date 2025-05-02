@@ -371,7 +371,13 @@ services:
     container_name: stormmatrix-grafana
     volumes:
       - grafana-data:/var/lib/grafana
-      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+      - ./docker/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./docker/grafana/provisioning/dashboards/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./docker/grafana/provisioning/dashboards/annual-diagnostics-dashboard.json:/etc/grafana/provisioning/dashboards/annual-diagnostics-dashboard.json
+      - ./docker/grafana/provisioning/dashboards/annual-business-intelligence-dashboard.json:/etc/grafana/provisioning/dashboards/annual-business-intelligence-dashboard.json
+      - ./docker/grafana/provisioning/dashboards/annual-infrastructure-dashboard.json:/etc/grafana/provisioning/dashboards/annual-infrastructure-dashboard.json
+      - ./docker/grafana/provisioning/dashboards/infrastructure-dashboard.json:/etc/grafana/provisioning/dashboards/infrastructure-dashboard.json
+      - ./docker/grafana/provisioning/dashboards/microservices-dashboard.json:/etc/grafana/provisioning/dashboards/microservices-dashboard.json
     ports:
       - "3200:3000"
     environment:
