@@ -1,25 +1,35 @@
 # StormMatrix Kanban
 
-A modern, full-featured Kanban board application designed with microservices architecture to provide scalability, resilience, and flexibility.
+<div align="center">
+  <img src="https://via.placeholder.com/200x200?text=StormMatrix" alt="StormMatrix Logo" width="200" height="200">
+  <h3>Professional Kanban Board System</h3>
+  <p>A modern, full-featured Kanban board application designed with microservices architecture to provide scalability, resilience, and flexibility.</p>
 
-![StormMatrix Kanban](https://via.placeholder.com/1200x600?text=StormMatrix+Kanban)
+  <a href="https://github.com/T-7219/StormMatrix-Kanban/releases/latest"><img src="https://img.shields.io/github/v/release/T-7219/StormMatrix-Kanban?include_prereleases&style=flat-square" alt="Latest Release"></a>
+  <a href="https://github.com/T-7219/StormMatrix-Kanban/blob/main/LICENSE"><img src="https://img.shields.io/github/license/T-7219/StormMatrix-Kanban?style=flat-square" alt="License"></a>
+  <a href="https://github.com/T-7219/StormMatrix-Kanban/stargazers"><img src="https://img.shields.io/github/stars/T-7219/StormMatrix-Kanban?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/T-7219/StormMatrix-Kanban/issues"><img src="https://img.shields.io/github/issues/T-7219/StormMatrix-Kanban?style=flat-square" alt="Issues"></a>
+  <a href="https://github.com/T-7219/StormMatrix-Kanban/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/T-7219/StormMatrix-Kanban/ci.yml?branch=main&label=tests&style=flat-square" alt="Tests"></a>
 
-## Features
+  [English](README.md) | [Русский](README.ru.md) | [Deutsch](README.de.md)
+</div>
 
-- **Intuitive Kanban Board Interface**: Drag-and-drop cards, customizable columns, and real-time updates
-- **Multi-language Support**: Available in English, German, and Russian
-- **User Authentication**: Secure login with optional two-factor authentication
-- **Team Collaboration**: Share boards, assign tasks, and comment on cards
-- **Customizable Workflows**: Define your own columns and workflow steps
-- **File Attachments**: Upload and attach files to cards
-- **Activity Tracking**: Keep track of all changes and updates
-- **Notifications**: Get notified about assignments and approaching deadlines
-- **Filtering and Searching**: Find tasks quickly with powerful filtering options
-- **Personal and Team Boards**: Separate personal tasks from team projects
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Dark Mode**: Reduce eye strain with dark mode support
+## ✨ Features
 
-## Architecture
+- **📋 Intuitive Kanban Board Interface**: Drag-and-drop cards, customizable columns, and real-time updates
+- **🌐 Multi-language Support**: Available in English, German, and Russian
+- **🔒 User Authentication**: Secure login with optional two-factor authentication
+- **👥 Team Collaboration**: Share boards, assign tasks, and comment on cards
+- **🔄 Customizable Workflows**: Define your own columns and workflow steps
+- **📎 File Attachments**: Upload and attach files to cards
+- **📊 Activity Tracking**: Keep track of all changes and updates
+- **🔔 Notifications**: Get notified about assignments and approaching deadlines
+- **🔍 Filtering and Searching**: Find tasks quickly with powerful filtering options
+- **👤 Personal and Team Boards**: Separate personal tasks from team projects
+- **📱 Responsive Design**: Works on desktop, tablet, and mobile devices
+- **🌙 Dark Mode**: Reduce eye strain with dark mode support
+
+## 🏗️ Architecture
 
 StormMatrix Kanban is built using a microservices architecture with the following components:
 
@@ -38,7 +48,7 @@ StormMatrix Kanban is built using a microservices architecture with the followin
 - **Monitoring**: Prometheus and Grafana for metrics and monitoring
 - **Logging**: ELK Stack (Elasticsearch, Logstash, Kibana) for centralized logging
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -50,7 +60,7 @@ StormMatrix Kanban is built using a microservices architecture with the followin
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-organization/stormmatrix-kanban.git
+git clone https://github.com/T-7219/StormMatrix-Kanban.git
 cd stormmatrix-kanban
 ```
 
@@ -79,7 +89,7 @@ The first time you run the application, an admin user will be created automatica
 
 Be sure to change these credentials immediately after your first login.
 
-## Development
+## 💻 Development
 
 ### Running Services Individually
 
@@ -115,7 +125,7 @@ cd backend/auth-service
 npm test
 ```
 
-## Documentation
+## 📚 Documentation
 
 Comprehensive documentation is available in the `docs` folder:
 
@@ -125,19 +135,30 @@ Comprehensive documentation is available in the `docs` folder:
 - [Development Guide](docs/development.md): Guide for developers
 - [Architecture](docs/architecture.md): Detailed system architecture
 
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions to StormMatrix Kanban! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-## Deployment
+## 📦 Deployment
 
 For production deployment, we recommend using Kubernetes. Configuration files for Kubernetes deployment are available in the `k8s` directory.
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## 👏 Acknowledgments
 
 - Thanks to all contributors who have helped build this project
 - Special thanks to the open source community for the amazing tools that made this possible
+
+## 📞 Contact & Support
+
+- Create an [issue](https://github.com/T-7219/StormMatrix-Kanban/issues) for bug reports or feature requests
+- Contact the team at support@stormmatrix.com
+
+---
+
+<div align="center">
+  Made with ❤️ by the StormMatrix Team
+</div>

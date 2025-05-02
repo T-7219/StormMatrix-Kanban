@@ -7,9 +7,10 @@ Welcome to StormMatrix Kanban! This guide will help you understand how to use th
 ### Registration and Login
 
 1. Navigate to the application URL
-2. Click "Sign Up" and enter your email, name, password, and select your preferred language
+2. Click "Sign Up" and enter your email, name, password, and select your preferred language (English, Russian, or German)
 3. After successful registration, you'll receive a confirmation email
 4. Log in with your email and password
+5. For enhanced security, you can set up Two-Factor Authentication
 
 ### Two-Factor Authentication (2FA)
 
@@ -25,18 +26,20 @@ StormMatrix Kanban supports optional two-factor authentication for enhanced secu
 
 ### Dashboard
 
-The dashboard displays:
+The main dashboard shows:
 - Your personal boards
 - Team boards you're part of
-- Recent activity
+- Recent activity on your boards
 - Pending notifications
+- Quick access to frequently used boards
 
 ### Main Navigation
 
 - **Boards** - Access to all your boards
 - **Notifications** - View and manage notifications
-- **Profile** - Access your profile settings
+- **Profile** - Access your profile settings and language preferences
 - **Help** - Get help and documentation
+- **Admin** - Admin panel (visible only to administrators)
 
 ## Working with Boards
 
@@ -45,15 +48,17 @@ The dashboard displays:
 1. Click "Create Board" button on the dashboard
 2. Enter a name and optional description
 3. Choose whether it's a personal or team board
-4. Click "Create"
+4. Set up initial columns (or use the default: Backlog, To Do, In Progress, Review, Done)
+5. Click "Create"
 
 ### Board Settings
 
 Access board settings by clicking the gear icon on a board:
 - Edit board name and description
-- Add/remove members
-- Configure columns
-- Set up tags
+- Add/remove members and set their permissions
+- Configure columns and workflow
+- Set up color-coded labels
+- Configure automated actions
 - Delete board (owner only)
 
 ### Managing Board Members
@@ -61,7 +66,7 @@ Access board settings by clicking the gear icon on a board:
 1. Go to board settings
 2. Click "Members" tab
 3. Add new members by email
-4. Assign roles (member or observer)
+4. Assign roles (owner, member, or observer)
 5. Remove members if needed
 
 ## Working with Cards
@@ -70,21 +75,23 @@ Access board settings by clicking the gear icon on a board:
 
 1. Click "+" button on any column
 2. Enter card title (required)
-3. Add description (optional)
+3. Add description (optional, supports markdown formatting)
 4. Set due date (optional)
 5. Assign members (optional)
-6. Add tags (optional)
-7. Click "Create"
+6. Add labels/tags (optional)
+7. Set priority (optional)
+8. Click "Create"
 
 ### Card Details
 
 Click on any card to see its details panel:
 - Edit title and description
-- Add comments
-- Upload attachments
+- Add comments with @mentions and formatting
+- Upload file attachments (documents, images, etc.)
 - Set or change due date
 - Manage assignees
-- Add or remove tags
+- Add or remove labels
+- Track activity history on the card
 
 ### Moving Cards
 
@@ -92,13 +99,15 @@ Cards can be moved by:
 - Drag and drop between columns
 - Using the "Move" option in card menu
 - Changing status in card details panel
+- Using keyboard shortcuts (arrow keys with modifier)
 
 ### Card Comments
 
 Comments support:
-- Rich text formatting
+- Rich text formatting with markdown
 - @mentions to notify users
-- File attachments
+- File attachments up to 100MB
+- Code snippets with syntax highlighting
 - Emoji reactions
 
 ## Managing Tasks
@@ -107,25 +116,27 @@ Comments support:
 
 Cards can be prioritized by:
 - Dragging to reorder them within a column
-- Adding priority tags
+- Adding priority labels (High, Medium, Low)
 - Setting due dates
+- Using color-coded card borders based on urgency
 
 ### Task Filtering and Searching
 
 Use the search and filter panel to:
-- Search by keyword
+- Search by keyword in title and description
 - Filter by assignee
-- Filter by tag
-- Filter by due date
+- Filter by label/tag
+- Filter by due date (overdue, today, this week, etc.)
 - Filter by status
+- Filter by priority
 
 ### Saving Filters
 
 Frequently used filters can be saved:
 1. Set up your filters
-2. Click "Save Filter"
-3. Name your filter
-4. Access saved filters from the filter dropdown
+2. Click "Save View"
+3. Name your filtered view
+4. Access saved views from the views dropdown
 
 ## Notifications
 
@@ -134,9 +145,10 @@ Frequently used filters can be saved:
 You'll receive notifications for:
 - Card assignments
 - @mentions in comments
-- Approaching deadlines
-- Status changes
+- Approaching deadlines (1 day before)
+- Status changes on cards you're watching
 - New comments on your cards
+- Board membership changes
 
 ### Notification Settings
 
@@ -145,6 +157,7 @@ Configure notification preferences in your profile:
 2. Click "Notifications" tab
 3. Enable/disable notification channels (in-app, email, Telegram)
 4. Configure which events trigger notifications
+5. Set notification frequency (immediate, daily digest, etc.)
 
 ## Keyboard Shortcuts
 
@@ -154,6 +167,12 @@ For power users, StormMatrix Kanban offers keyboard shortcuts:
 - `?` - Show keyboard shortcuts
 - `Esc` - Close dialog/panel
 - `Ctrl+Enter` - Save/Submit form
+- `← →` - Navigate between columns
+- `↑ ↓` - Navigate between cards
+- `D` - Open card details
+- `E` - Edit current card
+- `C` - Add comment to current card
+- `A` - Assign card to yourself
 
 ## Customization
 
@@ -169,18 +188,45 @@ For power users, StormMatrix Kanban offers keyboard shortcuts:
 2. Choose between light and dark mode
 3. Save changes
 
+### Board Customization
+
+1. Go to board settings
+2. Customize column names and limits
+3. Set card colors and templates
+4. Configure automated rules
+
+## File Attachments
+
+### Supported File Types
+
+You can attach various file types to cards:
+- Images (PNG, JPG, GIF)
+- Documents (PDF, DOCX, XLSX)
+- Archives (ZIP, RAR)
+- Other file types up to 100MB
+
+### Managing Attachments
+
+1. Open card details
+2. Click "Add Attachment"
+3. Upload file or link from cloud storage
+4. Add description for the attachment
+5. Attachments can be downloaded, previewed, or deleted
+
 ## Troubleshooting
 
 ### Common Issues
 
-- **Login Problems**: Ensure caps lock is off, try password reset
+- **Login Problems**: Ensure caps lock is off, try password reset via "Forgot Password" link
 - **Missing Notifications**: Check notification settings and spam folder
-- **Slow Performance**: Try refreshing the page or clearing browser cache
+- **Slow Performance**: Try refreshing the page, clearing browser cache, or using the optimized mobile view
 - **Card Not Updating**: Check your internet connection, refresh the page
+- **2FA Issues**: Use recovery codes or contact administrator
 
 ### Support
 
 For additional help:
-- Check the FAQ section
+- Check the FAQ section in Help
 - Contact support at support@stormmatrix.com
-- Report bugs through the "Report Issue" link
+- Report bugs through the "Report Issue" link in the user menu
+- Use the feedback form for suggestions
