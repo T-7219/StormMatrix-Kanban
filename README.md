@@ -157,10 +157,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Create an [issue](https://github.com/T-7219/StormMatrix-Kanban/issues) for bug reports or feature requests
 - Contact the team at support@stormmatrix.pro
-<<<<<<< HEAD
 - Join our [Telegram Group](https://t.me/+Ck61P7EPXgY5ZGVi) for discussions: @stormmatrix_pro
-=======
->>>>>>> 808ea130d1a6213646fce2958a561944b2636704
 
 ---
 

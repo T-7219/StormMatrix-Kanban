@@ -1,7 +1,7 @@
 # StormMatrix Kanban
 
 <div align="center">
-  <img src="img/logo/dementor-kanban-logo.png" alt="Dementor Kanban Logo" width="200">
+  <img src="img/logo/dementor-kanban-logo-de.png" alt="Dementor Kanban Logo" width="200">
   <h3>Professionelles Kanban-Board-System</h3>
   <p>Eine moderne, vollständige Kanban-Board-Anwendung, die mit Microservices-Architektur entwickelt wurde, um Skalierbarkeit, Widerstandsfähigkeit und Flexibilität zu bieten.</p>
 

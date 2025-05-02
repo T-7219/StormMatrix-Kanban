@@ -1,7 +1,7 @@
 # StormMatrix Kanban
 
 <div align="center">
-  <img src="img/logo/dementor-kanban-logo.png" alt="Dementor Kanban Логотип" width="200">
+  <img src="img/logo/dementor-kanban-logo-ru.png" alt="Dementor Kanban Логотип" width="200">
   <h3>Профессиональная система Kanban-досок</h3>
   <p>Современное, полнофункциональное Kanban-приложение, построенное на микросервисной архитектуре для обеспечения масштабируемости, отказоустойчивости и гибкости.</p>
 
