@@ -1,7 +1,7 @@
 # StormMatrix Kanban
 
 <div align="center">
-  <img src="img/logo/stormmatrix-logo-base.jpg" alt="StormMatrix Kanban Logo" width="200">
+  <img src="img/logo/stormmatrix-logo-base.png" alt="StormMatrix Kanban Logo" width="200">
   <h3>Professionelles Kanban-Board-System</h3>
   <p>Eine moderne, vollständige Kanban-Board-Anwendung, die mit Microservices-Architektur entwickelt wurde, um Skalierbarkeit, Widerstandsfähigkeit und Flexibilität zu bieten.</p>
 
