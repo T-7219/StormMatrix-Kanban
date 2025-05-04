@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Sitemap: https://stormmatrix.io/sitemap.xml
+
+# Оптимизация индексации - запретим сканировать файлы в некоторых папках
+User-agent: *
+Disallow: /images/favicon/
+Disallow: /css/
+Disallow: /js/
+
+# Специальные инструкции для Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Инструкции для Яндекса
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# Для тематических ботов
+User-agent: Googlebot-Image
+Allow: /images/
