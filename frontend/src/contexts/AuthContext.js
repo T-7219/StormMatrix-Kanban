@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 
 export const AuthContext = createContext();
 
@@ -30,33 +31,16 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     try {
       // В реальном приложении здесь будет запрос к auth-service
-      // const response = await axios.post('/api/v1/auth/login', { email, password });
-      // const { token, user } = response.data;
-      
-      let token, role, id, name;
-      
-      // Временное решение для демонстрации
-      if (email === 'admin@example.com' && password === 'admin') {
-        token = 'mock-admin-token';
-        role = 'admin';
-        id = 'admin-id';
-        name = 'Administrator';
-      } else if (email === 'user@example.com' && password === 'user') {
-        token = 'mock-user-token';
-        role = 'user';
-        id = 'user-id';
-        name = 'Regular User';
-      } else {
-        throw new Error('Неверные учетные данные');
-      }
-      
+      const response = await axios.post('/api/v1/auth/login', { email, password });
+      const { token, user } = response.data;
+            
       localStorage.setItem('auth_token', token);
-      localStorage.setItem('userRole', role);
-      localStorage.setItem('userId', id);
-      localStorage.setItem('userName', name);
+      localStorage.setItem('userRole', user.role);
+      localStorage.setItem('userId', user.id);
+      localStorage.setItem('userName', user.name);
       
-      setCurrentUser({ token, role, id, name });
-      return { role };
+      setCurrentUser({ token, role: user.role, id: user.id, name: user.name });
+      return { role: user.role };
     } catch (err) {
       setError(err.message || 'Произошла ошибка при входе');
       throw err;
@@ -68,11 +52,8 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     try {
       // В реальном приложении здесь будет запрос к auth-service
-      // const response = await axios.post('/api/v1/auth/register', { name: userName, email, password });
-      
-      // Временное решение для демонстрации
-      console.log('Регистрация пользователя:', { userName, email });
-      return { success: true, message: 'Регистрация успешна. Теперь вы можете войти.' };
+      const response = await axios.post('/api/v1/auth/register', { name: userName, email, password });
+      return response.data;
     } catch (err) {
       setError(err.message || 'Произошла ошибка при регистрации');
       throw err;
@@ -84,11 +65,8 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     try {
       // В реальном приложении здесь будет запрос к auth-service
-      // const response = await axios.post('/api/v1/auth/reset-password', { email });
-      
-      // Временное решение для демонстрации
-      console.log('Запрос на сброс пароля:', email);
-      return { success: true, message: 'Инструкции по сбросу пароля отправлены на ваш email.' };
+      const response = await axios.post('/api/v1/auth/reset-password', { email });
+      return response.data;
     } catch (err) {
       setError(err.message || 'Произошла ошибка при запросе сброса пароля');
       throw err;
