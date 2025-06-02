@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Added axios import
 import { AuthContext } from '../contexts/AuthContext';
 import './Dashboard.css';
 
@@ -28,74 +29,26 @@ function Dashboard() {
       if (!currentUser) return;
       
       setLoading(true);
+      setError(null); // Reset error before fetching
       try {
-        // В реальном приложении здесь будет API запрос
-        // const response = await axios.get('/api/v1/boards', {
-        //   headers: { Authorization: `Bearer ${currentUser.token}` }
-        // });
-        
-        // Имитация задержки сетевого запроса
-        setTimeout(() => {
-          // Мок-данные для имитации ответа сервера
-          const mockPersonalBoards = [
-            { 
-              id: 'board-1', 
-              name: 'Личные задачи', 
-              description: 'Мои повседневные задачи и цели', 
-              cards: 8, 
-              owner: currentUser.name,
-              updatedAt: new Date().toISOString()
-            },
-            { 
-              id: 'board-2', 
-              name: 'Рабочие проекты', 
-              description: 'Отслеживание задач по рабочим проектам', 
-              cards: 15, 
-              owner: currentUser.name,
-              updatedAt: new Date(Date.now() - 86400000).toISOString() // вчера
-            }
-          ];
-          
-          const mockTeamBoards = [
-            { 
-              id: 'board-3', 
-              name: 'Разработка фронтенда', 
-              description: 'Задачи по разработке UI компонентов', 
-              cards: 12, 
-              owner: 'Ольга Смирнова',
-              updatedAt: new Date(Date.now() - 172800000).toISOString() // позавчера
-            },
-            { 
-              id: 'board-4', 
-              name: 'Бэкенд-микросервисы', 
-              description: 'Разработка микросервисной архитектуры', 
-              cards: 10, 
-              owner: 'Иван Петров',
-              updatedAt: new Date(Date.now() - 259200000).toISOString() // 3 дня назад
-            },
-            { 
-              id: 'board-5', 
-              name: 'Тестирование проекта', 
-              description: 'QA и автоматизированное тестирование', 
-              cards: 7, 
-              owner: 'Алексей Иванов',
-              updatedAt: new Date(Date.now() - 345600000).toISOString() // 4 дня назад
-            }
-          ];
-          
-          setPersonalBoards(mockPersonalBoards);
-          setTeamBoards(mockTeamBoards);
-          setLoading(false);
-        }, 800);
+        const response = await axios.get('/api/v1/boards', {
+          headers: { Authorization: `Bearer ${currentUser.token}` }
+        });
+        const { personalBoards, teamBoards } = response.data;
+        setPersonalBoards(personalBoards || []);
+        setTeamBoards(teamBoards || []);
       } catch (err) {
         console.error("Error fetching boards:", err);
         setError("Не удалось загрузить доски. Пожалуйста, попробуйте позже.");
+      } finally {
         setLoading(false);
       }
     };
     
-    fetchBoards();
-  }, [currentUser]);
+    if (currentUser) { // Ensure currentUser is available before fetching
+      fetchBoards();
+    }
+  }, [currentUser]); // Removed fetchBoards from dependency array as it's defined inside useEffect
   
   // Форматирование даты обновления
   const formatUpdatedAt = (dateString) => {
@@ -114,33 +67,44 @@ function Dashboard() {
   };
   
   // Создание новой доски
-  const handleCreateBoard = () => {
-    if (!newBoardName.trim()) {
+  const handleCreateBoard = async () => { // Made async
+    if (!newBoardName.trim() || !currentUser) { // Added currentUser check
       return;
     }
     
-    // В реальном приложении здесь будет API запрос для создания доски
-    // await axios.post('/api/v1/boards', { 
-    //   name: newBoardName, 
-    //   type: newBoardType
-    // }, {
-    //   headers: { Authorization: `Bearer ${currentUser.token}` }
-    // });
-    
-    // Имитация создания доски
-    const newBoard = {
-      id: `board-${Date.now()}`,
-      name: newBoardName,
-      description: '',
-      cards: 0,
-      owner: currentUser.name,
-      updatedAt: new Date().toISOString()
-    };
-    
-    if (newBoardType === 'personal') {
-      setPersonalBoards([newBoard, ...personalBoards]);
-    } else {
-      setTeamBoards([newBoard, ...teamBoards]);
+    try {
+      await axios.post('/api/v1/boards', { 
+        name: newBoardName, 
+        type: newBoardType
+      }, {
+        headers: { Authorization: `Bearer ${currentUser.token}` }
+      });
+      
+      // Re-fetch boards after successful creation
+      // Need to define fetchBoards outside useEffect or pass currentUser to it if defined inside.
+      // For simplicity, directly calling the logic here or re-triggering useEffect.
+      // A better approach might be to have fetchBoards as a useCallback function.
+      // For now, directly re-fetching:
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await axios.get('/api/v1/boards', {
+          headers: { Authorization: `Bearer ${currentUser.token}` }
+        });
+        const { personalBoards, teamBoards } = response.data;
+        setPersonalBoards(personalBoards || []);
+        setTeamBoards(teamBoards || []);
+      } catch (fetchErr) {
+        console.error("Error re-fetching boards:", fetchErr);
+        setError("Не удалось обновить доски после создания.");
+      } finally {
+        setLoading(false);
+      }
+
+    } catch (err) {
+      console.error("Error creating board:", err);
+      // Optionally set an error state to show in the modal or dashboard
+      setError(err.response?.data?.message || "Не удалось создать доску. Пожалуйста, попробуйте позже.");
     }
     
     setNewBoardName('');
