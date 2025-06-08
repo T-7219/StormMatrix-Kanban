@@ -72,7 +72,7 @@ export class Board {
   @OneToMany(() => Card, card => card.board, { cascade: true })
   cards: Card[];
 
-  @OneToMany(() => Label, label => label.boardId, { cascade: true })
+  @OneToMany(() => Label, label => label.board, { cascade: true })
   labels: Label[];
 
   @CreateDateColumn()
