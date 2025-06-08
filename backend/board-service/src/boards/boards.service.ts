@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, FindOptionsWhere, In } from 'typeorm';
+import { Repository, FindOptionsWhere, Like } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { Board, BoardVisibility } from './entities/board.entity';
 import { CreateBoardDto } from './dto/create-board.dto';
@@ -42,7 +42,7 @@ export class BoardsService {
       // Boards owned by the user
       { ownerId: userId, archived: !includeArchived ? false : undefined },
       // Boards where user is a member
-      { memberIds: In([userId]), archived: !includeArchived ? false : undefined },
+      { memberIds: Like(`%${userId}%`), archived: !includeArchived ? false : undefined },
       // Public boards if needed
       { visibility: BoardVisibility.PUBLIC, archived: !includeArchived ? false : undefined },
     ];
